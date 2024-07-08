@@ -1,0 +1,31 @@
+<template>
+  <div>
+    <h1>Login</h1>
+    <form @submit.prevent="login">
+      <input type="text" v-model="username" placeholder="Username" />
+      <input type="password" v-model="password" placeholder="Password" />
+      <button type="submit">Login</button>
+    </form>
+  </div>
+</template>
+<style>
+
+</style>
+<script>
+export default {
+  data() {
+    return {
+      username: '',
+      password: ''
+    }
+  },
+  methods: {
+    login() {
+      this.$store.dispatch('login', {
+        username: this.username,
+        password: this.password
+      })
+    }
+  }
+}
+</script>
