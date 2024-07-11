@@ -6,7 +6,7 @@
 import router  from "@/router/router.js";
 export default {
   beforeCreate() {
-    router.push({path:'/home'})
+    router.push({path:'/login'})
   }
 }
 </script>

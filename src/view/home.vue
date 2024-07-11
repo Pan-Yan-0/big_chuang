@@ -15,7 +15,6 @@ export default {
   mounted() {
     const token = this.$route.query.token;
     this.token = token
-    console.log(token); // Use the token as needed
   },
   data() {
     return {

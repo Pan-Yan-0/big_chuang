@@ -35,7 +35,7 @@ export default {
 
         const token = responseData.data.token;
         console.log(token)
-        this.$router.push({name: 'home',params:{
+        this.$router.push({name: 'home',query:{
             token : token
           }})
       } catch (error) {
