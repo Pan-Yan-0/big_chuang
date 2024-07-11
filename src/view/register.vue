@@ -1,25 +1,35 @@
 <script>
-import router  from "@/router/router.js";
+import router from "@/router/router.js";
+
 export default {
   data() {
     return {
       imageShow: "src/assets/login-content-replace.png",
-      showRegister: false,
-      showLogin: true,
+      email: '',
+      username: '',
+      code: '',
+      password: '',
+      repeatPassword: ''
+
     };
   },
-  methods:{
+  methods: {
     returnLogin() {
       console.log("return login")
-      router.push({name:'login'})
+      this.$router.push({name: 'login'})
     },
     async sendEmail() {
       /*
       * @TODO
       * */
-      const url = '';
+      if (this.email === '') {
+        alert('请输入邮箱');
+        return;
+      }
+      const url = 'http://47.93.42.122:8888/user/SendMail';
       const requestData = {
-        email: this.email
+        toUserMail: this.email,
+        where: 'regist'
       };
       try {
         const response = await fetch(url, {
@@ -42,9 +52,9 @@ export default {
       /*
       * @TODO
       * */
-      const url = '';
+      const url = 'http://47.93.42.122:8888/user/register';
       const requestData = {
-        username: this.username,
+        nickName: this.username,
         email: this.email,
         code: this.code,
         password: this.password
